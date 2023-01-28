@@ -1,0 +1,23 @@
+{% load static %}
+<header class="main-header">
+    <a class="site-logo" href="">
+        <img src="{% static '/img/x.ico' %}" alt="logo">
+        <p>MBA Dating</p>
+    </a>
+    <nav class="site-nav">
+        <ul class="nav-list">
+            <li class="nav-list-item "><a href="" class="">Home </a></li>
+            <li class="nav-list-item"><a href="#">Community </a></li>
+            <li class="nav-list-item"><a href="#">Blog </a></li>
+            <li class="nav-list-item"><a href="#">Pages </a></li>
+            <li class="nav-list-item"><a href="#">Shop </a></li>
+        </ul>
+    </nav>
+    
+    <div class="header-login">
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+    <button class="head-options" href="#">
+        <img src="{% static 'img/menu.png' %}" alt="Menu">
+    </button>
+</header>
