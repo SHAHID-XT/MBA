@@ -20,7 +20,7 @@ body {
   padding: 1.5em 3em;
   display: flex;
   align-items: center;
-  background: var(--secondry-color);
+  background-color: var(--secondry-color);
   justify-content: space-between;
 }
 
