@@ -2,77 +2,97 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MBA - Login</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'css/LoginAndRegister.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/LoginAndRegister.css' %}" />
     <title>MBA - Login</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    {% include 'base.html' %} {{ regsiter.as_p }} {% if page == 'register' %}
+    <form method="POST" class="register-form">
+    <div class="form-head-div">
+      <h2 class="form-title">Register</h2>
+    </div>
 
-    {% include 'base.html' %}
-    {{ regsiter.as_p }}
-    {% if page == 'register' %}
-    <form method="POST" class='register-form'>
-        <h2 class="form-title">Register</h2>
-        {% csrf_token %}
-        <div class="form-div">
-            <label for="id_first_name">First name:</label>
-            <input type="text" name="first_name" maxlength="150" id="id_first_name">
+    <div class="find-text-partner">
+        <p>Find your partner
+        </p>
+    </div>
+      {% csrf_token %}
+      <div class="form-div">
+        <label for="id_first_name">First name:</label>
+        <input
+          type="text"
+          name="first_name"
+          maxlength="150"
+          id="id_first_name"
+        />
+      </div>
 
-        </div>
+      <div class="form-div">
+        <label for="id_last_name">Last name:</label>
+        <input type="text" name="last_name" maxlength="150" id="id_last_name" />
+      </div>
 
-        <div class="form-div">
-            <label for="id_last_name">Last name:</label>
-            <input type="text" name="last_name" maxlength="150" id="id_last_name">
-        </div>
+      <div class="form-div">
+        <label for="id_username">Username:</label>
+        <input
+          type="text"
+          name="username"
+          maxlength="150"
+          required=""
+          id="id_username"
+        />
+        <span class="helptext"
+          >Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+          only.</span
+        >
+      </div>
 
+      <div class="form-div">
+        <label for="id_email">Email address:</label>
+        <input type="email" name="email" maxlength="254" id="id_email" />
+      </div>
 
-        <div class="form-div">
-            <label for="id_username">Username:</label>
-            <input type="text" name="username" maxlength="150" required="" id="id_username"> <span
-                class="helptext">Required. 150 characters or fewer. Letters, digits and
-                @/./+/-/_ only.</span>
-        </div>
+      <div class="form-div">
+        <label for="id_gender" class="inline">Gender:</label>
+        <select id="id_gender" name="gender">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-        <div class="form-div">
-            <label for="id_email">Email address:</label>
-            <input type="email" name="email" maxlength="254" id="id_email">
-        </div>
+      <div class="form-div">
+        <label for="id_password">Password:</label>
+        <input
+          type="text"
+          name="password"
+          maxlength="128"
+          required=""
+          id="id_password"
+        />
+      </div>
 
-        <div class="form-div">
-            <label for="id_gender" class="inline">Gender:</label>
-            <select id="id_gender" name="gender">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
+      <div class="form-div">
+        <label for="id_password1">Confirm Password:</label>
+        <input
+          type="text"
+          name="password1"
+          maxlength="128"
+          required=""
+          id="id_password1"
+        />
+      </div>
 
-        <div class="form-div">
-            <label for="id_password">Password:</label>
-            <input type="text" name="password" maxlength="128" required="" id="id_password">
-        </div>
-
-        <div class="form-div">
-            <label for="id_password1">Confirm Password:</label>
-            <input type="text" name="password1" maxlength="128" required="" id="id_password1">
-        </div>
-
-
-
-
-        <button type="submit" class=" "> Submit</button>
-
+      <button type="submit" class=" ">Submit</button>
     </form>
 
     {% endif %}
-
-
-
-</body>
+  </body>
+</html>
