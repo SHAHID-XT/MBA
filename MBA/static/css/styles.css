@@ -166,7 +166,7 @@ body {
 }
 
 .member-item {
-    background: var(--secondry-color);
+  background: var(--secondry-color);
   width: 100%;
   transition: all 0.15s;
   border-radius: 0.3rem;

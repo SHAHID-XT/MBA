@@ -13,16 +13,14 @@
   </head>
 
   <body>
-    {% include 'base.html' %} {{ regsiter.as_p }} {% if page == 'register' %}
+    {% include 'base.html' %} {% if page == 'register' %}
     <form method="POST" class="register-form">
-    <div class="form-head-div">
-      <h2 class="form-title">Register</h2>
-    </div>
-
-    <div class="find-text-partner">
-        <p>Find your partner
-        </p>
-    </div>
+      <div class="form-head-div">
+        <h2 class="form-title">Register {{page}}</h2>
+      </div>
+      <div class="find-text-partner">
+        <p>Find your partner</p>
+      </div>
       {% csrf_token %}
       <div class="form-div">
         <label for="id_first_name">First name:</label>
@@ -60,15 +58,6 @@
       </div>
 
       <div class="form-div">
-        <label for="id_gender" class="inline">Gender:</label>
-        <select id="id_gender" name="gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-
-      <div class="form-div">
         <label for="id_password">Password:</label>
         <input
           type="text"
@@ -90,9 +79,12 @@
         />
       </div>
 
-      <button type="submit" class=" ">Submit</button>
+      <button type="submit" class="login-submit-btn">Submit</button>
     </form>
-
+      {% page == 'login' %}
+      
     {% endif %}
+
+     {% include 'footer.html' %}
   </body>
 </html>
