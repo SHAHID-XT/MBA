@@ -4,14 +4,26 @@ from django.contrib.auth.models import User
 
 class Recharge(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    taget =models.CharField(max_length=10, null=True)
-    
+    taget = models.CharField(max_length=10, null=True)
+
     def __str__(self):
         return self.name
 
+
 class Profile(User):
-    profile_pic = models.ImageField(upload_to='static/profilepictures')
+    profile_pic = models.ImageField(
+        upload_to='static/profilepictures', null=True)
     gender = models.CharField(max_length=10, null=True)
+    birthday = models.DateField(null=True)
+    country = models.CharField(max_length=20, null=True)
+    city = models.CharField(max_length=20, null=True)
+    passion = models.CharField(max_length=20, null=True)
+    connection = models.CharField(max_length=20, null=True)
+    looking = models.CharField(max_length=20, null=True)
+    status = models.CharField(max_length=20, null=True)
+
+    def __str__(self):
+        return self.status
 
 
 class Rooms(models.Model):
@@ -42,12 +54,13 @@ class Message(models.Model):
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    likes= models.ManyToManyField(User, related_name="user", blank=True)
+    likes = models.ManyToManyField(User, related_name="user", blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user
+
 
 class Match(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

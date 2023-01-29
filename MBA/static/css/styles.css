@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap');
 
+
+:root{0
+    --primary-color : rgba(183,224,230,255);
+    --secondry-color:rgba(121,198,206,255);
+    --primary-button:rgba(255,86,93,255);
+}
 * {
     padding: 0px;
     margin: 0px;
@@ -51,6 +57,7 @@
     display: flex;
     text-decoration: none;
 }
+
 
 .site-logo>img {
     padding: 0.3em 0.4em;

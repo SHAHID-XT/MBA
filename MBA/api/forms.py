@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Recharge,Rooms,Message,Like,Match
+from .models import Recharge,Rooms,Message,Like,Match,Profile
 from django.contrib.auth.models import User
 
 
@@ -12,7 +12,9 @@ class RoomForm(ModelForm):
         
 class UserFrom(ModelForm):
     class Meta:
-        model = User
-        fields =  ['username','email' ,'first_name' ,'last_name','gender']
+        model = Profile
+        # fields =  ['username','email' ,'first_name' ,'last_name']
+        fields = '__all__'
+
         
         
