@@ -54,14 +54,13 @@
 
 .site-logo>img {
     padding: 0.3em 0.4em;
-    width: 2em;
-    height: 2em;
+    width: 1.9em;
+    height: 1.9em;
 }
 
 .site-logo>p {
-    font-family: serif;
-
     font-size: 1.2rem;
+    padding: 0.3em 0.4em;
     font-weight: 700;
     color: black;
 
@@ -323,10 +322,13 @@
     padding: 0.4em 0;
 }
 
+.quick-link-section{
+    background: #252d3b;
+}
 .quicklink {
+    width: 85%;
     padding: 2em 0;
     border-radius: 0.3em;
-    background: #252d3b;
     margin: 1em auto;
     display: flex;
     gap: 0.5em;
@@ -400,7 +402,13 @@
         text-align: center;
     }
 
-    .followus>a {
-        justify-content: center;
+    .followus{
+        display: none;
     }
+}
+u{
+    color:#ef5b85;
+}
+footer{
+    text-align: center;
 }
