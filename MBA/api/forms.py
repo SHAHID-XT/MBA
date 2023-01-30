@@ -13,17 +13,19 @@ class RoomForm(ModelForm):
 class imgForm(ModelForm):
     class Meta:
         model = img
-        fields = ['img',"user"]
+        fields = '__all__'
 
 
 class UserFrom(ModelForm):
     class Meta:
         model = Profile
         fields = ['username', 'email', 'first_name', 'last_name', 'password']
+
         # fields = '__all__'
 
 
 class ProfleForm(ModelForm):
     class Meta:
         model = Profile
-        fields = '__all__'
+        fields = ['username', 'email', 'first_name', 'last_name', 'country',
+                  "gender", "birthday", "passion", "connection", "looking", "status"]

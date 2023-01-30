@@ -8,14 +8,14 @@
   overflow: hidden;
 }
 
-.setting-form > .form__group > label {
+.setting-form>.form__group>label {
   font-family: "Lexend", sans-serif;
   display: block;
   font-size: 1rem;
   margin: 0.5em 0;
 }
 
-.setting-form > .form__group > input {
+.setting-form>.form__group>input {
   box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 15%);
   font-family: "Lexend", sans-serif;
   /* font-size: 1.2rem;
@@ -34,7 +34,7 @@
   border: 1px solid rgb(122, 100, 100);
 }
 
-.setting-form > .form__group > select {
+.setting-form>.form__group>select {
   box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 15%);
   font-family: "Lexend", sans-serif;
   background: transparent;
@@ -59,24 +59,24 @@
   font-size: 1rem;
   border: 1px solid rgb(122, 100, 100);
 }
+
 .pp {
   width: 7em;
   text-align: center;
   margin: 2rem auto;
+  overflow: hidden;
 }
 
-.pp > img {
+.pp>img {
   width: 100%;
-  overflow: hidden;
   border-radius: 50%;
 }
 
-.pp>label{
+.pp>label {}
 
-}
-.pp>input{
-    margin: none;
-box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 15%);
+.pp>input {
+  margin: none;
+  box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 15%);
   font-family: "Lexend", sans-serif;
   background-color: transparent;
   padding: 0.4rem;
@@ -88,6 +88,6 @@ box-shadow: 1px 1px 3px 1px rgb(0 0 0 / 15%);
   /* opacity:0.0; */
 }
 
-#user{
+#user {
   display: none;
 }

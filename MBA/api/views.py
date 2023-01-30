@@ -58,31 +58,51 @@ def Logout(request):
 @login_required(login_url="login")
 def Settings(request):
     error = False
-    form = ProfileModel.objects.get(username=request.user)
-    email = form.email
-    img = imgForm()
+    actualimg = False
+    mform = ProfileModel.objects.get(username=request.user.username)
+    try:
+        actualimg = imgModel.objects.get(user=request.user.username)
+    except:
+        ""
+    email = mform.email
+
     if request.method == "POST":
-        forms = imgForm(request.POST, request.FILES)
-        forms.user = request.user.username
-        if forms.is_valid():
-            forms.save()
+        isoldfound = False
+        try:
+            old_image = imgModel.objects.get(user=request.user)
+            isoldfound = True
+        except:
+            ""
+
+        if isoldfound:
+            imguser = imgForm(request.POST, request.FILES, instance=old_image)
         else:
-            print(forms.errors.as_text)
+            imguser = imgForm(request.POST, request.FILES)
+        if imguser.is_valid():
+            imguser.save()
+        else:
+            print(imguser.errors.as_text)
+
     if request.method == 'POST':
         form = ProfileModel.objects.get(username=request.user)
-        form.first_last = request.POST.get("last_name")
-        form.first_name = request.POST.get("first_name")
-        form.email = email
-        form.profile_pic = request.POST.get("profile_pic")
-        form.gender = request.POST.get("gender")
-        form.birthday = request.POST.get("birthday")
-        form.country = request.POST.get("country")
-        form.passion = request.POST.get("passion")
-        form.connection = request.POST.get("connection")
-        form.looking = request.POST.get("looking")
-        form.status = request.POST.get("status")
-        form.save()
+        email = form.email
+        forms = ProfleForm(request.POST, instance=form)
+        if forms.is_valid():
+            forms.save()
+            form.email = email
+            print(request.POST.get("country"))
+            form.country = request.POST.get("country")
+            form.save()
+        else:
+            print(forms.errors.as_text)
         return redirect('home')
-    context = {"form": form, "error": error, "img": img}
+    context = {"form": mform, "error": error, "profilep": actualimg}
 
     return render(request, 'profile.html', context)
+
+
+@login_required(login_url="login")
+def Members(request):
+    memmers = ProfileModel.objects.all()
+    context = {"memmers": memmers}
+    return render(request, 'members.html',context)
