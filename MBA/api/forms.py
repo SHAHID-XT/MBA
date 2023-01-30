@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Recharge, Rooms, Message, Like, Match, Profile,img
+from .models import Recharge, Rooms, Message, Like, Match, Profile, img
 from django.contrib.auth.models import User
 
 
@@ -9,11 +9,13 @@ class RoomForm(ModelForm):
         fields = '__all__'
         exclude = ['host', 'participants']
 
+
 class imgForm(ModelForm):
     class Meta:
         model = img
-        fields = '__all__'
-        
+        fields = ['img',"user"]
+
+
 class UserFrom(ModelForm):
     class Meta:
         model = Profile

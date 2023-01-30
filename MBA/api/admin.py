@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Recharge,Rooms,Message,Like,Match,Profile
-
+from .models import Recharge,Rooms,Message,Like,Match,Profile,img
+admin.site.register(img)
 admin.site.register(Recharge)
 admin.site.register(Rooms)
 admin.site.register(Message)
