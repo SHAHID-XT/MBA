@@ -1,12 +1,12 @@
 {% load static %}
 <header class="main-header">
-  <a class="site-logo" href="">
+  <a class="site-logo" href="{% url 'home' %}">
     <img src="{% static '/img/x.ico' %}" alt="logo" />
     <p>MBA Dating</p>
   </a>
   <nav class="site-nav">
     <ul class="nav-list">
-      <li class="nav-list-item"><a href="" class="">Home </a></li>
+      <li class="nav-list-item"><a href="{% url 'home' %}" class="">Home </a></li>
       <li class="nav-list-item"><a href="#">Community </a></li>
       <li class="nav-list-item"><a href="#">Blog </a></li>
       <li class="nav-list-item"><a href="#">Pages </a></li>
@@ -15,9 +15,29 @@
   </nav>
 
   <div class="header-login">
+    {% if request.user.is_authenticated %}
+    <p> Hello, <u> {{ request.user }} </u></p>
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
     <a href="{% url 'login' %}">Login</a>
+
+    {% endif %}
   </div>
-  <button class="head-options" href="#">
-    <img src="{% static 'img/menu.png' %}" alt="Menu" />
-  </button>
+
+  <div class="head-options">
+    <img id = 'clickvisible' src="{% static 'img/menu.png' %}" alt="Menu" />
+    <div class="hidden-menu" id="hiddenmenu">
+      {% if request.user.is_authenticated %}
+      <a href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      {% endif %}
+      <a href="{% url 'home' %}">Home</a>
+    
+      <a href="#">Friends</a>
+
+
+    </div>
+  </div>
+
 </header>

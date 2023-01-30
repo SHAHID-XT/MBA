@@ -101,7 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#static
+# static
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",

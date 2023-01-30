@@ -2,89 +2,109 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MBA - Login</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/LoginAndRegister.css' %}" />
-    <title>MBA - Login</title>
-  </head>
 
-  <body>
-    {% include 'base.html' %} {% if page == 'register' %}
-    <form method="POST" class="register-form">
-      <div class="form-head-div">
-        <h2 class="form-title">Register {{page}}</h2>
-      </div>
-      <div class="find-text-partner">
-        <p>Find your partner</p>
-      </div>
-      {% csrf_token %}
-      <div class="form-div">
-        <label for="id_first_name">First name:</label>
-        <input
-          type="text"
-          name="first_name"
-          maxlength="150"
-          id="id_first_name"
-        />
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBA - Login</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/LoginAndRegister.css' %}" />
+  <title>MBA - Login</title>
+</head>
 
-      <div class="form-div">
-        <label for="id_last_name">Last name:</label>
-        <input type="text" name="last_name" maxlength="150" id="id_last_name" />
-      </div>
+<body>
+  {% include 'base.html' %}
+  {% if error %}
 
-      <div class="form-div">
-        <label for="id_username">Username:</label>
-        <input
-          type="text"
-          name="username"
-          maxlength="150"
-          required=""
-          id="id_username"
-        />
-        <span class="helptext"
-          >Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-          only.</span
-        >
-      </div>
+  <p class="error"> {{ error }}</p>
 
-      <div class="form-div">
-        <label for="id_email">Email address:</label>
-        <input type="email" name="email" maxlength="254" id="id_email" />
-      </div>
+  {% endif %}
+  {% if request.user.is_authenticated %}
+  <form method="POST" class="register-form">
+    <div class="form-head-div">
+      <h2 class="form-title">You are Already Logged in! </h2>
+    </div>
 
-      <div class="form-div">
-        <label for="id_password">Password:</label>
-        <input
-          type="text"
-          name="password"
-          maxlength="128"
-          required=""
-          id="id_password"
-        />
-      </div>
+    <div class="find-text-partner">
+      <p> <a href="{% url 'home' %}" class="normal-text">Go back to Home </a> </p>
+    </div>
+  </form>
+  {% elif page == 'register' %}
+  <form method="POST" class="register-form">
+    <div class="form-head-div">
+      <h2 class="form-title">Register</h2>
+    </div>
+    <div class="find-text-partner">
+      <p>Find your partner</p>
+    </div>
+    {% csrf_token %}
+    <div class="form-div">
+      <label for="id_first_name">First name:</label>
+      <input type="text" name="first_name" maxlength="150" id="id_first_name" />
+    </div>
 
-      <div class="form-div">
-        <label for="id_password1">Confirm Password:</label>
-        <input
-          type="text"
-          name="password1"
-          maxlength="128"
-          required=""
-          id="id_password1"
-        />
-      </div>
+    <div class="form-div">
+      <label for="id_last_name">Last name:</label>
+      <input type="text" name="last_name" maxlength="150" id="id_last_name" />
+    </div>
 
-      <button type="submit" class="login-submit-btn">Submit</button>
-    </form>
-      {% page == 'login' %}
-      
-    {% endif %}
+    <div class="form-div">
+      <label for="id_username">Username:</label>
+      <input type="text" name="username" maxlength="150" required="" id="id_username" />
+      <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+        only.</span>
+    </div>
 
-     {% include 'footer.html' %}
-  </body>
+    <div class="form-div">
+      <label for="id_email">Email address:</label>
+      <input type="email" name="email" maxlength="254" id="id_email" />
+    </div>
+
+    <div class="form-div">
+      <label for="id_password">Password:</label>
+      <input type="password" name="password" maxlength="128" required="" id="id_password" />
+    </div>
+
+    <div class="form-div">
+      <label for="id_password1">Confirm Password:</label>
+      <input type="password" name="password1" maxlength="128" required="" id="id_password1" />
+    </div>
+
+    <button type="submit" class="login-submit-btn">Submit</button>
+    <div class="find-text-partner">
+      <p>Already registerd?</p>
+      <a href="{% url 'login' %}">Login</a>
+    </div>
+  </form>
+
+  {% elif page == 'login' %}
+
+  <form method="POST" class="register-form">
+    <div class="form-head-div">
+      <h2 class="form-title">Login </h2>
+    </div>
+    <div class="find-text-partner">
+      <p>Find your partner</p>
+    </div>
+    {% csrf_token %}
+    <div class="form-div">
+      <label for="id_username">Username:</label>
+      <input type="text" name="username" maxlength="150" required="" id="id_username" />
+    </div>
+    <div class="form-div">
+      <label for="id_password">Password:</label>
+      <input type="password" name="password" maxlength="128" required="" id="id_password" />
+    </div>
+    <button type="submit" class="login-submit-btn">Submit</button>
+    <div class="find-text-partner">
+      <p>Haven't signed up yet?</p>
+      <a href="{% url 'register' %}">Sign Up</a>
+    </div>
+  </form>
+
+  {% endif %}
+  {% include 'footer.html' %}
+</body>
+
 </html>

@@ -1,14 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBA Dating</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    
-
 </head>
 
 <body>
@@ -25,7 +24,7 @@
                 <p>15.000 members have already found their half.</p>
                 <p>It’s free an it will only take a few minutes to make your first encounters. </p>
                 <p>So what are you waiting for?</p>
-                <a href="#">
+                <a href="{% url 'register' %}">
                     Subscribe to MBA Now.
                 </a>
             </div>

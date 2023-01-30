@@ -7,5 +7,6 @@ urlpatterns = [
     path("",view=views.Home,name="home"),
     path('',include("api.urls")),
     
+    
 ]
 

@@ -4,7 +4,7 @@
   <div class="quicklink">
     <div class="more flex">
       <h2>More MBA</h2>
-      <a href=""> Home </a>
+      <a href="{% url 'home' %}"> Home </a>
       <a href="#"> Blog </a>
       <a href="#"> About us </a>
       <a href="#"> Terms & Conditions </a>
@@ -40,10 +40,14 @@
         MBA offers you the opportunity to simply accelerate this process by
         finding out which is your life partner.
       </p>
-      <a href="#" class="last-register"> Register Now </a>
+      <a href="{% url 'register' %}" class="last-register"> Register Now </a>
     </div>
   </div>
 </section>
 <footer>
   <p>Copyright &copy; MBA.</p>
 </footer>
+
+<script src="{% static '/css/script.js' %}">
+
+</script>
