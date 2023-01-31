@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 
 class Recharge(models.Model):
@@ -9,8 +10,9 @@ class Recharge(models.Model):
     def __str__(self):
         return self.user
 
+
 class img(models.Model):
-    user = models.CharField(max_length=10, null=True,unique=True)
+    user = models.CharField(max_length=10, null=True, unique=True)
     img = models.ImageField(
         upload_to='static/profilepictures', null=True)
 
@@ -27,8 +29,6 @@ class Profile(User):
     connection = models.CharField(max_length=20, null=True)
     looking = models.CharField(max_length=20, null=True)
     status = models.CharField(max_length=20, null=True)
-    pp = models.ImageField(
-        upload_to='static/profilepictures', null=True)
 
 
 class Rooms(models.Model):

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>MBA - Memebers</title>
+</head>
+
+<body>
+    {% include 'base.html' %}
+    <section>
+        <div class="main-profile">
+            <img src="{% url 'home'%}{{user.img}}" alt="user">
+            <div class="personal-d" > 
+            <p>Name : {{ user.first_name }} {{user.last_name}}</p>
+            <p> Gender : {{user.gender}}</p>
+            <p>DOB : {{user.birthday}}</p>
+            <p>Passion : {{user.passion}}</p>
+            <p>Status : {{user.status}}</p>
+            <p>Country : {{user.country}}</p>
+            <p> Looking For : {{user.looking}}</p>
+            <button class="like-btn">Like</button>
+        </div>
+        </div>
+    </section>
+    {% include 'footer.html' %}
+
+</body>
+
+</html>

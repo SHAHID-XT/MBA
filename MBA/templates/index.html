@@ -33,57 +33,27 @@
 
     <section>
         <div class="memebers">
-            <div class="member-item">
-                <a href="#">
-                    <img src="{% static '/img/person.jpg' %}" alt="Memeber">
-                    <p class="memeber-name">Shahid Shaikh</p>
-                    <p class="age-gender">
-                        <span class="age">20</span> <span>Male</span>
-                    </p>
-                </a>
-            </div>
-            <div class="member-item">
-                <a href="#">
-                    <img src="{% static '/img/person.jpg' %}" alt="Memeber">
-                    <p class="memeber-name">Shahid Shaikh</p>
-                    <p class="age-gender">
-                        <span class="age">20</span> <span>Male</span>
-                    </p>
-                </a>
-            </div>
-            <div class="member-item">
-                <a href="#">
-                    <img src="{% static '/img/person.jpg' %}" alt="Memeber">
-                    <p class="memeber-name">Shahid Shaikh</p>
-                    <p class="age-gender">
-                        <span class="age">20</span> <span>Male</span>
-                    </p>
-                </a>
-            </div>
-
+            {% for user in users %}
 
             <div class="member-item">
-                <a href="#">
+                <a href="{% url 'profile' user.username %}">
+                    {%  if user.img %}
+                    <img src="{% url 'home' %}{{user.img}}" alt="Memeber"/>
+                    {% else %}
                     <img src="{% static '/img/person.jpg' %}" alt="Memeber">
-                    <p class="memeber-name">Shahid Shaikh</p>
+                    {% endif %}
+                    <p class="memeber-name">{{user.first_name}} {{user.last_name}}</p>
                     <p class="age-gender">
-                        <span class="age">20</span> <span>Male</span>
+                        <span class="age">{{user.age}} </span> <span>{{user.gender}}</span>
                     </p>
                 </a>
             </div>
-            <div class="member-item">
-                <a href="#">
-                    <img src="{% static '/img/person.jpg' %}" alt="Memeber">
-                    <p class="memeber-name">Shahid Shaikh</p>
-                    <p class="age-gender">
-                        <span class="age">20</span> <span>Male</span>
-                    </p>
-                </a>
-            </div>
+            {% endfor %}
+
         </div>
         <div class="discover-more">
 
-            <a href="#" class="discover-item">
+            <a href="{% url 'members' %}" class="discover-item">
                 Discover All Memebers
             </a>
         </div>
